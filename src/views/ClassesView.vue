@@ -1,21 +1,33 @@
 <template lang="">
   <div>
-    Classes
-    <nav>
-      <div v-for="(clase) in clases">
-        
-      </div>
-    </nav>
-    <Class>
+    <Suspense>
+      <template #default>
+        <div>
+          <nav>
+            <div v-for="(clase) in clases"></div>
+          </nav>
+          <Class></Class>
+        </div>
+      </template>
+      <template #fallback>
+        <div>Loading...</div>
+      </template>
+      
+    </Suspense>
 
-    </Class>
+    
+    
+
+    
   </div>
 </template>
 <script setup>
+import { useCounterStore } from "@/stores/counter";
 import Class from "../components/Class.vue";
-import {fetchTo}  from "../scripts/utils.js";
-let datos =  await fetchTo("classes");
+import { fetchTo } from "../scripts/utils.js";
+let datos = await fetchTo("classes");
 console.log(datos);
+let store = useCounterStore();
 </script>
 <style lang="">
   
