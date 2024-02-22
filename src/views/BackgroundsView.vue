@@ -1,10 +1,12 @@
 <template lang="">
   <div>
-    spells
+    BVackgrounds
   </div>
 </template>
-<script setup>
-
+<script>
+export default {
+  
+}
 </script>
 <style lang="">
   
