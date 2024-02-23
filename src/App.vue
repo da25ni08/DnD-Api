@@ -1,9 +1,14 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import { fetchTo } from './scripts/utils';
+import { useCounterStore } from './stores/counter';
+
+
 </script>
 
 <template>
-  <header>
+  <div class="div-general">
+    <header>
       <nav class="nav-categorias">
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/classes">Classes</RouterLink>
@@ -13,13 +18,35 @@ import { RouterLink, RouterView } from 'vue-router'
       </nav>
   </header>
 
-  <RouterView class="vistaRouter" />
+  <RouterView v-slot="{ Component }" >
+    <template v-if="Component">
+        <KeepAlive>
+          <Suspense>
+            <!-- main content -->
+            <component :is="Component" class="vistaRouter"></component>
+  
+            <!-- loading state -->
+            <template #fallback>
+              Loading...
+            </template>
+          </Suspense>
+        </KeepAlive>
+    </template>
+  </RouterView>
+  </div>
+  
 </template>
 
 <style scoped>
+
+.div-general {
+  display: flex;
+  width: 98dvw;
+}
+
 header {
   line-height: 1.5;
-  max-height: 100vh;
+  height: 100vh;
   width: 50vw;
 }
 
@@ -33,7 +60,7 @@ header {
 }
 
 .vistaRouter {
- width: 100%;
+ width: 50vw;
 }
 
 .nav-categorias a.router-link-exact-active {
