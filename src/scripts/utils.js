@@ -24,3 +24,30 @@ export function getDesc(desc) {
 
   return htmlResult;
 }
+
+
+export function getTable(tableString) {
+  let arrayRows = tableString.split("\n");
+  arrayRows.pop();
+  let htmlResult = "" ;
+  arrayRows.map((row, rowIndex) => {
+    let arrayCells = row.split("|");
+    arrayCells.pop();
+    arrayCells.shift();
+    if(!arrayCells[0].startsWith("-")){
+      htmlResult = htmlResult + "<tr>"
+    arrayCells.map((cell) => {
+      if(rowIndex == 0) {
+        htmlResult = htmlResult + "<th>" + cell + "</th>"
+      }else {
+        htmlResult = htmlResult + "<td>" + cell + "</td>"
+      }
+      
+    });
+    htmlResult = htmlResult + "</tr>"
+    }
+    
+  })
+  htmlResult = htmlResult + "";
+  return htmlResult
+}

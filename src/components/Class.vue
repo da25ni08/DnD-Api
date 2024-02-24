@@ -25,15 +25,13 @@ import { ref, toRefs } from 'vue'
 const props = defineProps([
   'claseVisible'
 ])
-let {clase}= toRefs(props);
-clase = props.claseVisible;
+const { clase } = toRefs(props);
 console.log(clase);
+
 let descripcion = ref("")
-descripcion.value = getDesc(clase.desc);
+descripcion.value = getDesc(clase.value.desc);
 console.log(descripcion);
 </script>
 <style scoped>
-  .div-general {
-    
-  }
+  
 </style>

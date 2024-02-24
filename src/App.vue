@@ -17,8 +17,8 @@ import { useCounterStore } from './stores/counter';
         <RouterLink to="/spells">Spells</RouterLink>
       </nav>
   </header>
-
-  <RouterView v-slot="{ Component }" >
+  <section class="contenido">
+    <RouterView v-slot="{ Component }" >
     <template v-if="Component">
         <KeepAlive>
           <Suspense>
@@ -27,27 +27,46 @@ import { useCounterStore } from './stores/counter';
   
             <!-- loading state -->
             <template #fallback>
-              Loading...
+              <div class="carga"><p>Loading...</p></div>
             </template>
           </Suspense>
         </KeepAlive>
     </template>
   </RouterView>
+  </section>
+  
   </div>
   
 </template>
 
 <style scoped>
 
-.div-general {
+.contenido {
+  width: 70dvw;
+  margin-left: 25dvw;
+  padding-top: 30px;
+}
+
+.carga {
+  width: 70dvw;
+  height: 100dvh;
   display: flex;
-  width: 98dvw;
+  justify-content: center;
+  align-items: center;
+}
+.div-general {
+  width: 20px;
 }
 
 header {
+  position: fixed;
+  top: 0px;
+  left: 0px;
   line-height: 1.5;
   height: 100vh;
-  width: 50vw;
+  width: 20vw;
+  background-color: white;
+  z-index: 40;
 }
 
 .nav-categorias {
@@ -60,7 +79,7 @@ header {
 }
 
 .vistaRouter {
- width: 50vw;
+  width: 50vw;
 }
 
 .nav-categorias a.router-link-exact-active {

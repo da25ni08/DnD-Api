@@ -1,7 +1,7 @@
 <template lang="">
   <div class="div-general">
     <div class="overflow">
-      <div v-for="(result, index) in results" class="category-div" @click="$emit('changeCategory', index)">{{ result.name }}</div>
+      <button v-for="(result, index) in results" class="category-div" @click="$emit('changeCategory', index)">{{ result.name }}</button>
     </div>
     
   </div>
@@ -22,21 +22,30 @@ let { count, next, previous, results } = storeToRefs(data)
 
 </script>
 <style scoped>
-
 .div-general {
   width: 100%;
-
+  top: 0px;
+  width: 200dvw;
 }
 
 .overflow {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
   overflow-x: scroll;
+  display: flex;
   flex-wrap: nowrap;
+
   height: 20dvh;
 }
+
 .category-div {
-  width: 200px;
+  min-width: 100px;
+  height: 80%;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  border: 2px white solid;
+  text-align: center;
+  background-color: rgb(185, 156, 41);
 }
 </style>
