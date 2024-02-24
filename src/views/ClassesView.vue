@@ -6,15 +6,9 @@ import CategoryNav from "@/components/CategoryNav.vue";
 import { fetchTo } from "../scripts/utils.js";
 import { storeToRefs } from "pinia";
 
-let clases = ref([]);
 let claseVisible = ref([])
 let descripcion = ref("")
 let tabla = ref("")
-
-
-let datos = await fetchTo("classes");
-
-clases.value = datos.results;
 
 let store = useCounterStore();
 
