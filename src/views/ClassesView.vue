@@ -1,9 +1,8 @@
 <script setup>
 import { useCounterStore } from "@/stores/counter";
-import { ref, defineAsyncComponent } from 'vue'
+import { ref} from 'vue'
 import { getDesc, getTable } from "../scripts/utils.js";
 import CategoryNav from "@/components/CategoryNav.vue";
-import { fetchTo } from "../scripts/utils.js";
 import { storeToRefs } from "pinia";
 
 let claseVisible = ref([])
@@ -16,7 +15,6 @@ await store.fetchTo("classes");
 
 let { count, next, previous, results } = storeToRefs(store);
 
-console.log(results);
 claseVisible.value = results.value[0];
 descripcion.value = getDesc(claseVisible.value.desc);
 tabla.value = getTable(claseVisible.value.table)
@@ -25,7 +23,6 @@ function changeCategory(index) {
   claseVisible.value = results.value[index];
   descripcion.value = getDesc(claseVisible.value.desc);
   tabla.value = getTable(claseVisible.value.table)
-  console.log(claseVisible);
 }
 
 </script>
