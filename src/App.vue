@@ -3,6 +3,11 @@ import { RouterLink, RouterView } from 'vue-router'
 import { fetchTo } from './scripts/utils';
 import { useCounterStore } from './stores/counter';
 
+let store = useCounterStore();
+async function cambiarDatos(direccion) {
+  
+}
+
 
 </script>
 
@@ -10,18 +15,17 @@ import { useCounterStore } from './stores/counter';
   <div class="div-general">
     <header>
       <nav class="nav-categorias">
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/classes">Classes</RouterLink>
-        <RouterLink to="/races">Races</RouterLink>
-        <RouterLink to="/backgrounds">Backgrounds</RouterLink>
-        <RouterLink to="/spells">Spells</RouterLink>
+        <RouterLink to="/" @click="cambiarDatos()">Home</RouterLink>
+        <RouterLink to="/classes" @click="cambiarDatos('classes')">Classes</RouterLink>
+        <RouterLink to="/races" @click="cambiarDatos('races')">Races</RouterLink>
+        <RouterLink to="/backgrounds" @click="cambiarDatos('backgrounds')">Backgrounds</RouterLink>
+        <RouterLink to="/spells" @click="cambiarDatos('spells')">Spells</RouterLink>
       </nav>
   </header>
   <section class="contenido">
     <RouterView v-slot="{ Component }" >
     <template v-if="Component">
-        <KeepAlive>
-          <Suspense>
+          <Suspense timeout="0">
             <!-- main content -->
             <component :is="Component" class="vistaRouter"></component>
   
@@ -30,7 +34,6 @@ import { useCounterStore } from './stores/counter';
               <div class="carga"><p>Loading...</p></div>
             </template>
           </Suspense>
-        </KeepAlive>
     </template>
   </RouterView>
   </section>
