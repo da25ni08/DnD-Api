@@ -17,7 +17,7 @@ export function getClassDesc(desc) {
 	let htmlResult = "";
 	arrayDesc.forEach((element) => {
 		if (element.substring(0, 3) == "###") {
-			htmlResult = htmlResult + "<h2>" + element.slice(4) + "</h2>";
+			htmlResult = htmlResult + "<h3>" + element.slice(4) + "</h3>";
 		} else if (element == " ") {
 			htmlResult = htmlResult + "<br>";
 		} else {
@@ -38,7 +38,7 @@ export function getRaceDesc(desc) {
 	let htmlResult = "";
 	arrayDesc.forEach((element) => {
 		if (element.substring(0, 2) == "##") {
-			htmlResult = htmlResult + "<h2>" + element.slice(2) + "</h2>";
+			htmlResult = htmlResult + "<h3>" + element.slice(2) + "</h3>";
 		} else if (element == " ") {
 			htmlResult = htmlResult + "<br>";
 		} else {

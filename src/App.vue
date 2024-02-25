@@ -19,7 +19,6 @@ async function cambiarDatos(direccion) {
         <RouterLink to="/classes" @click="cambiarDatos('classes')">Classes</RouterLink>
         <RouterLink to="/races" @click="cambiarDatos('races')">Races</RouterLink>
         <RouterLink to="/backgrounds" @click="cambiarDatos('backgrounds')">Backgrounds</RouterLink>
-        <RouterLink to="/spells" @click="cambiarDatos('spells')">Spells</RouterLink>
       </nav>
   </header>
   <section class="contenido">
@@ -68,8 +67,10 @@ header {
   line-height: 1.5;
   height: 100vh;
   width: 20vw;
-  background-color: white;
+  background-color: #D1C39E;
   z-index: 40;
+  display: flex;
+    place-items: center;
 }
 
 .nav-categorias {
@@ -86,7 +87,7 @@ header {
 }
 
 .nav-categorias a.router-link-exact-active {
-  color: var(--color-text);
+  font-weight: bold;
 }
 
 .nav-categorias a.router-link-exact-active:hover {
@@ -97,19 +98,17 @@ header {
   display: inline-block;
   padding: 0 1rem;
   margin: 20px;
+  color: #17150F;
+  width: 50%;
+  text-align: center;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
 }
 
 @media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
   header .wrapper {
     display: flex;
     place-items: flex-start;

@@ -36,16 +36,19 @@ function changeCategory(index) {
       <div class="spellcasting" v-if="claseVisible.spellcasting_ability != ''"><h2>Spellcasting Ability</h2><p>{{claseVisible.spellcasting_ability}}</p></div>
 
       <h2>Proficiencies</h2>
+      <br>
       <p>Skills: {{claseVisible.prof_skills}}</p>
       <p>Tools: {{claseVisible.prof_tools}}</p>
       <p>Weapons: {{claseVisible.prof_weapons}}</p>
       <p>Armor: {{claseVisible.prof_armor}}</p>
       <p>Saving Throws: {{claseVisible.prof_saving_throws}}</p>
-
+      <br>
       <h2>Equipment</h2>
+      <br>
       <p>{{claseVisible.equipment}}</p>
-
+      <br>
       <h2>Class Features</h2>
+      <br>
       <div v-html="descripcion"></div>
     </div>
   </div>

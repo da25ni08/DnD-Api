@@ -44,8 +44,23 @@ let { count, next, previous, results } = storeToRefs(data)
   align-items: center;
   justify-content: center;
   border-radius: 20px;
-  border: 2px white solid;
+  border: 1px #17150F solid;
   text-align: center;
-  background-color: rgb(185, 156, 41);
+  background-color: #F7C948;
+}
+
+.overflow::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+.overflow::-webkit-scrollbar-track {
+  background: #C9B682;
+  border-radius: 20px;
+}
+
+.overflow::-webkit-scrollbar-thumb {
+  background-color: #D1C39E;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 1px solid #FBFAF8;  /* creates padding around scroll thumb */
 }
 </style>
