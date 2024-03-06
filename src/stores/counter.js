@@ -1,12 +1,34 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
-export const useCounterStore = defineStore('counter', () => {
-  const count = ref(0)
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
-  }
+export const useCounterStore = defineStore('counter', {
+  state:()=>({
+    count: "0",
+    next: "",
+    previous: "",
+    results: [],
+  }),
+  actions:{
 
-  return { count, doubleCount, increment }
+    setApiData(count, next, previous, results) {
+      this.count = count
+      this.next = next
+      this.previous = previous
+      this.results = results
+    },
+
+    async fetchTo(ext, params = "") {
+      let urlApi = "https://api.open5e.com/" + ext + "/?" + params
+      let resultado = [];
+      await fetch(urlApi).then((response)=> response.json()).then((data) => resultado = data);
+      this.count = resultado.count;
+      this.next = resultado.next;
+      this.previous = resultado.previous;
+      this.results = resultado.results;
+      return resultado
+    }
+
+
+  }
+  
 })
